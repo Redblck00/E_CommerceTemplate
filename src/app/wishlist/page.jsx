@@ -36,10 +36,10 @@ console.log("product ids", products);
     
                     {/* Title with gradient */}
                     <div className="space-y-4">
-                        <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                        <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent font-serif">
                             Таны хадгалсан бараа хоосон байна
                         </h2>
-                        <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
+                        <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed font-serif">
                             Та дуртай бараагаа энд хадгалж, хожим нь худалдан авч болно
                         </p>
                     </div>
@@ -48,7 +48,7 @@ console.log("product ids", products);
                     <div className="pt-4">
                         <Link
                             href="/shop"
-                            className="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-500 to-red-500 text-white text-base sm:text-lg font-semibold rounded-full hover:from-indigo-600 hover:to-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                            className="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-red-400 to-pink-400 text-white text-base sm:text-lg font-semibold rounded-full hover:from-indigo-600 hover:to-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-serif"
                         >
                             <FaShoppingBag className="mr-3 group-hover:animate-bounce" />
                             Дэлгүүрлэж эхлэх

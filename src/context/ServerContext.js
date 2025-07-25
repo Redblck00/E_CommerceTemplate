@@ -184,20 +184,55 @@ export const ServerProvider = ({ children }) => {
     }
   }, []);
 
-  // Fetch wishlist whenever user logs in
+  // Fetch wishlist omnoh wishlist
+  // useEffect(() => {
+  //   const fetchWishlist = async () => {
+  //     if (!user) return;
+  //     try {
+  //       // setWishlistLoading(true);
+  //       const response = await axios.get(
+  //         `${api.url}/wishlist?user=${
+  //           user?._id || user?.id
+  //         }&merchant=${merchantId}`
+  //       );
+
+  //       const items = response.data.data || [];
+
+  //       const ids = items.map((it) =>
+  //         typeof it === "object" ? it.product || it._id || it.id : it
+  //       );
+  //       setWishlist(ids);
+  //     } catch (err) {   
+  //       console.error("Failed to fetch wishlist", err);
+  //       setWishlistError(
+  //         err.response?.data?.message || "Failed to fetch wishlist"
+  //       );
+  //     } finally {
+  //       setWishlistLoading(false);
+  //     }
+  //   };
+  //   if (wishlistLoading) {
+  //     fetchWishlist();
+  //   }
+  // }, [wishlistLoading]);
+   
+  //minii oorchilson wishlist
   useEffect(() => {
     const fetchWishlist = async () => {
-      if (!user) return;
+      if (!user) {
+        setWishlistLoading(false);
+        return;
+      }
+      
       try {
-        // setWishlistLoading(true);
+        setWishlistLoading(true); // Set loading at the start
         const response = await axios.get(
           `${api.url}/wishlist?user=${
             user?._id || user?.id
           }&merchant=${merchantId}`
         );
-
+  
         const items = response.data.data || [];
-
         const ids = items.map((it) =>
           typeof it === "object" ? it.product || it._id || it.id : it
         );
@@ -211,10 +246,9 @@ export const ServerProvider = ({ children }) => {
         setWishlistLoading(false);
       }
     };
-    if (wishlistLoading) {
-      fetchWishlist();
-    }
-  }, [wishlistLoading]);
+  
+    fetchWishlist();
+  }, [user, merchantId]); // Depend on user and merchantId instead
 
   const addToWishlist = async (productId) => {
     if (!user) {

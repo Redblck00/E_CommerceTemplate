@@ -34,7 +34,7 @@ export default function ProfilePage() {
       <div className="max-w-5xl mx-auto font-serif">
         {/* Header Card */}
         <div className="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
-          <div className="bg-gradient-to-r from-indigo-400 via-indigo-500 to-purple-500 px-6 py-6 relative">
+          <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800  px-6 py-6 relative">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-16 -mt-16"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-12 -mb-12"></div>
             <div className="relative z-10">
