@@ -94,8 +94,6 @@ export default function HorizontalProductScroll({ products, title = "Products" }
                     </button>
                 </div>
             </div>
-
-            {/* Scrollable Container */}
             <div className="relative">
                 <div
                     ref={scrollContainerRef}
@@ -107,7 +105,7 @@ export default function HorizontalProductScroll({ products, title = "Products" }
                         WebkitOverflowScrolling: 'touch'
                     }}>
                     {products?.map((product, index) => (
-                        <div key={product.id || index} className="product-card snap-start flex-shrink-0">
+                        <div key={product.id || index} className="product-card snap-start flex-shrink-0 font-serif">
                             <ProductCard product={product} />
                         </div>
                     ))}

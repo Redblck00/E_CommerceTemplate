@@ -36,7 +36,7 @@ export default function ProductCard({ product, viewMode = "grid" }) {
 
   return (
     <div className={`relative rounded-2xl overflow-hidden border border-gray-200 hover:shadow-md hover:border-transparent transition-all duration-300 group ${
-      viewMode === "list" ? "flex flex-row items-center h-[190px] w-full p-4" : "flex flex-col items-center w-60 h-80 mr-5"
+      viewMode === "list" ? "flex flex-row items-center h-[190px] w-full p-4" : "flex flex-col items-center w-60 h-80 mr-5 font-serif"
     }`}>
       {viewMode === "list" ? (
         // List View Layout
@@ -44,8 +44,7 @@ export default function ProductCard({ product, viewMode = "grid" }) {
           {/* Product Image */}
           <div className="relative w-40 h-40 flex-shrink-0 mr-6 py-2 rounded-xl overflow-hidden ">
             <img
-              // src={product.images || "/images/device1.jpg"}
-              src="/images/iphone16.jpg"
+              src={product.images || "/images/device1.jpg"}
               alt={product.name}
               className="object-contain w-full h-full rounded-lg"
             />
@@ -161,8 +160,7 @@ export default function ProductCard({ product, viewMode = "grid" }) {
             
             {/* Product Image */}
             <img
-              // src={product.images || "/placeholder.jpg"}
-                  src="/images/iphone16.jpg"
+              src={product.images || "/placeholder.jpg"}
               alt={product.name}
               className="object-contain w-full h-full p-4"
             />
@@ -209,18 +207,13 @@ export default function ProductCard({ product, viewMode = "grid" }) {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
-                {/* {inWishlist ? (
-              <FaHeart className="text-sm md:text-base text-red-500" />
-            ) : (
-              <FaRegHeart className="text-sm md:text-base" />
-            )} */}
-
+              
               </button>
             </div>
           </div>
           
           {/* Product Details */}
-          <div className="px-4 pb-4 flex flex-col justify-between h-24">
+          <div className="px-4 pb-4 flex flex-col justify-between h-24 font-serif">
             <Link href={`/product/${product._id || product.id}`} className="hover:text-blue-600 transition-colors">
               <h3 className="text-sm font-medium text-gray-900 line-clamp-2 leading-relaxed">
                 {product.name}
@@ -239,8 +232,7 @@ export default function ProductCard({ product, viewMode = "grid" }) {
                   </span>
                 )}
               </div>
-              
-              {/* Rating - Always visible */}
+       
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className={`w-3 h-3 ${i < (product.rating || 4) ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 24 24">
