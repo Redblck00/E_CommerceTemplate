@@ -16,6 +16,7 @@ export default function SalesProduct(){
     const { addToCart } = useCart();
     const {isMobile ,SetMobile}=useState(false);
     const salesProducts=products.filter((product)=>product.isSales===true);
+    console.log("products",products);
     const setSlidePerview=()=>{
         setSlides(  window.innerWidth <= 550
             ? 2
@@ -66,35 +67,20 @@ export default function SalesProduct(){
                 />
               </div>
             </div>
-            <div className="p-3 md:p-4">
+            <div className="p-3 md:p-4 font-serif">
               <Link href={`/product/${item._id}`}>
-                <h3 className="text-sm md:text-base font-medium mb-1 md:mb-2 line-clamp-2 group-hover:text-indigo-300 transition-colors">
+                <h3 className="text-slate-900 text-sm md:text-base font-medium mb-1 md:mb-2 line-clamp-2 group-hover:text-indigo-300 transition-colors">
                   {item.name}
                 </h3>
                 <div className="flex items-center gap-2 mb-1 md:mb-2">
-                  <span className="text-red-500 font-bold text-sm md:text-base">
-                    {Intl.NumberFormat("mn-MN").format(item.salePrice)}₮
+                  <span className="text-red-800 font-bold text-sm md:text-base">
+                    {Intl.NumberFormat("mn-MN").format(item.originalPrice||item.salePrice)}₮
                   </span>
                   <span className="text-gray-400 line-through text-xs md:text-sm">
                     {Intl.NumberFormat("mn-MN").format(item.price)}₮
                   </span>
                 </div>
               </Link>
-              {/* <div className="flex items-center">
-                {[...Array(5)].map((_, index) => (
-                  <FaStar
-                    key={index}
-                    className={`w-3 h-3 md:w-4 md:h-4 ${
-                      index < product.rating
-                        ? "text-yellow-400"
-                        : "text-gray-300"
-                    }`}
-                  />
-                ))}
-                <span className="ml-2 text-xs md:text-sm text-gray-500">
-                  ({Math.floor(Math.random() * 100) + 50})
-                </span>
-              </div> */}
            
             </div>
                  </div>
