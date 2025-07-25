@@ -184,55 +184,20 @@ export const ServerProvider = ({ children }) => {
     }
   }, []);
 
-  // Fetch wishlist omnoh wishlist
-  // useEffect(() => {
-  //   const fetchWishlist = async () => {
-  //     if (!user) return;
-  //     try {
-  //       // setWishlistLoading(true);
-  //       const response = await axios.get(
-  //         `${api.url}/wishlist?user=${
-  //           user?._id || user?.id
-  //         }&merchant=${merchantId}`
-  //       );
-
-  //       const items = response.data.data || [];
-
-  //       const ids = items.map((it) =>
-  //         typeof it === "object" ? it.product || it._id || it.id : it
-  //       );
-  //       setWishlist(ids);
-  //     } catch (err) {   
-  //       console.error("Failed to fetch wishlist", err);
-  //       setWishlistError(
-  //         err.response?.data?.message || "Failed to fetch wishlist"
-  //       );
-  //     } finally {
-  //       setWishlistLoading(false);
-  //     }
-  //   };
-  //   if (wishlistLoading) {
-  //     fetchWishlist();
-  //   }
-  // }, [wishlistLoading]);
-   
-  //minii oorchilson wishlist
+  // anh bsn wishlist coode
   useEffect(() => {
     const fetchWishlist = async () => {
-      if (!user) {
-        setWishlistLoading(false);
-        return;
-      }
-      
+      if (!user) return;
       try {
-        setWishlistLoading(true); // Set loading at the start
+        // setWishlistLoading(true);
         const response = await axios.get(
           `${api.url}/wishlist?user=${
             user?._id || user?.id
           }&merchant=${merchantId}`
         );
-  
+
         const items = response.data.data || [];
+
         const ids = items.map((it) =>
           typeof it === "object" ? it.product || it._id || it.id : it
         );
@@ -246,9 +211,44 @@ export const ServerProvider = ({ children }) => {
         setWishlistLoading(false);
       }
     };
+    if (wishlistLoading) {
+      fetchWishlist();
+    }
+  }, [wishlistLoading]);
+   
+  //minii oorchilson wishlist
+  // useEffect(() => {
+  //   const fetchWishlist = async () => {
+  //     if (!user) {
+  //       setWishlistLoading(false);
+  //       return;
+  //     }
+      
+  //     try {
+  //       setWishlistLoading(true); // Set loading at the start
+  //       const response = await axios.get(
+  //         `${api.url}/wishlist?user=${
+  //           user?._id || user?.id
+  //         }&merchant=${merchantId}`
+  //       );
   
-    fetchWishlist();
-  }, [user, merchantId]); // Depend on user and merchantId instead
+  //       const items = response.data.data || [];
+  //       const ids = items.map((it) =>
+  //         typeof it === "object" ? it.product || it._id || it.id : it
+  //       );
+  //       setWishlist(ids);
+  //     } catch (err) {   
+  //       console.error("Failed to fetch wishlist", err);
+  //       setWishlistError(
+  //         err.response?.data?.message || "Failed to fetch wishlist"
+  //       );
+  //     } finally {
+  //       setWishlistLoading(false);
+  //     }
+  //   };
+  
+  //   fetchWishlist();
+  // }, [user, merchantId]); // Depend on user and merchantId instead
 
   const addToWishlist = async (productId) => {
     if (!user) {
