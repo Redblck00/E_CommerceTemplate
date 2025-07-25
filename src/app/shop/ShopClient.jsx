@@ -3,7 +3,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { dummy, cate_gories } from "@/app/lib/mockData.js";
 import { useService } from "@/context/ServerContext";
-import { MdCleaningServices } from "react-icons/md";
 import ProductCard from "@/component/home/ProductCard";
 import { 
   FiStar, 
